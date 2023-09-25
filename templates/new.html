@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor's Prescription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .prescription {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .prescription h2 {
+            text-align: center;
+        }
+        .prescription p {
+            margin: 5px 0;
+        }
+        .prescription ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .prescription ul li:before {
+            content: "• ";
+        }
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="prescription">
+        <h2>Doctor's Prescription</h2>
+        <p><strong>Date:</strong> <span id="currentDate"></span></p>
+        <p><strong>Doctor's Name:</strong> Anuroop</p>
+        <p><strong>Doctor's License Number:</strong> 5652656</p>
+        <p><strong>Patient's Name:</strong> {{current_user.email}}</p>
+        <p><strong>Medications:</strong></p>
+        <ul>
+            <li>[Medication 1]</li>
+            <li>[Medication 2]</li>
+            <!-- Add more medications as needed -->
+        </ul>
+        <p><strong>Dosage:</strong> [Insert Dosage Information]</p>
+        <p><strong>Instructions:</strong> [Insert Instructions]</p>
+        <p><strong>Additional Notes:</strong> [Insert Additional Notes]</p>
+        <div class="signature">
+            <p>Doctor's Signature: ________________________</p>
+        </div>
+    </div>
+
+    <script>
+        // Get the current date and format it as "YYYY-MM-DD"
+        const currentDate = new Date().toISOString().split('T')[0];
+        document.getElementById('currentDate').textContent = currentDate;
+    </script>
+</body>
+</html>

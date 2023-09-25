@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Chatbot</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff5f6d, #ffc371);
+        }
+
+        .container {
+            margin-top: 30px;
+            max-width: 500px;
+        }
+
+        .chat-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .user-message {
+            text-align: right;
+            color: #fff;
+            background-color: #007bff;
+            padding: 8px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .bot-message {
+            color: #fff;
+            background-color: #28a745;
+            padding: 8px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Medical Chatbot</h1>
+        <div class="chat-container" id="chat-container">
+            <div class="bot-message">Bot: Hello! How can I assist you today?</div>
+        </div>
+        <div class="input-group mt-3">
+            <input type="text" id="user-input" class="form-control" placeholder="Your message...">
+            <div class="input-group-append">
+                <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var user_input = document.getElementById("user-input").value;
+            var chat_container = document.getElementById("chat-container");
+
+            var user_message = document.createElement("div");
+            user_message.className = "user-message";
+            user_message.innerHTML = "You: " + user_input;
+            chat_container.appendChild(user_message);
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'message': user_input })
+            })
+            .then(response => response.json())
+            .then(data => {
+                var bot_response = data.bot_response;
+                var bot_message = document.createElement("div");
+                bot_message.className = "bot-message";
+                bot_message.innerHTML = "Bot: " + bot_response;
+                chat_container.appendChild(bot_message);
+            });
+
+            document.getElementById("user-input").value = '';
+        }
+    </script>
+
+    <!-- Add Bootstrap JS and jQuery script links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

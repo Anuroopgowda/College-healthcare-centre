@@ -1,0 +1,110 @@
+[
+  {
+    "response_type": "greeting",
+    "user_input": ["hello", "hi", "hey"],
+    "bot_response": "Hey there!",
+    "required_words": []
+  },
+  {
+    "response_type": "greeting",
+    "user_input": ["see you", "goodbye", "bye"],
+    "bot_response": "See you later!",
+    "required_words": []
+  },
+  {
+    "response_type": "greeting",
+    "user_input": ["nice", "to", "meet", "you"],
+    "bot_response": "The pleasure is all mine!",
+    "required_words": ["nice", "meet", "you"]
+  },
+  {
+    "response_type": "question",
+    "user_input": ["how", "to", "learn", "code", "coding", "apps"],
+    "bot_response": "Start by typing: 'How to learn coding' on Google.",
+    "required_words": ["learn", "code"]
+  },
+  {
+    "response_type": "question",
+    "user_input": ["refund", "how", "can", "I", "get"],
+    "bot_response": "We don't offer refunds for free education.",
+    "required_words": ["refund", "i"]
+  },
+  {
+    "response_type": "question",
+    "user_input": ["how", "are", "you"],
+    "bot_response": "I'm great! Thanks for asking.",
+    "required_words": ["how", "are", "you"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "fever"],
+    "bot_response": "You can take paracetamol and get plenty of rest to treat your fever.",
+    "required_words": ["i", "have", "fever"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "headache"],
+    "bot_response": "You can take dart tablet for your headache.",
+    "required_words": ["i", "have", "headache"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "body", "pain"],
+    "bot_response": "You can try applying a pain relief cream and rest.",
+    "required_words": ["i", "have", "body", "pain"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "cold"],
+    "bot_response": "Rest, drink plenty of fluids, and consider using over-the-counter cold medications.",
+    "required_words": ["i", "have", "cold"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "cough"],
+    "bot_response": "Drink warm fluids, use cough drops(Tus-Q), and consider taking over-the-counter cough syrup.",
+    "required_words": ["i", "have", "cough"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "gastritis","gastric"],
+    "bot_response": "Avoid spicy and acidic foods, eat smaller meals, and consider antacids.",
+    "required_words": ["i", "have", "gastritis","gastric"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "dry cough"],
+    "bot_response": "Drink plenty of warm fluids, use a humidifier, and try cough suppressants(Ducof-LS).",
+    "required_words": ["i", "have", "dry cough"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "itching throat"],
+    "bot_response": "Gargle with warm saltwater and try using throat lozenges.",
+    "required_words": ["i", "have", "itching throat"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "chest pain"],
+    "bot_response": "If the chest pain is severe or persistent, seek immediate medical attention.",
+    "required_words": ["i", "have", "chest pain"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "stomach pain"],
+    "bot_response": "Avoid heavy meals, consider antacids, and rest.",
+    "required_words": ["i", "have", "stomach pain"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "weakness"],
+    "bot_response": "Get plenty of rest and eat nutritious meals.",
+    "required_words": ["i", "have", "weakness"]
+  },
+  {
+    "response_type": "treatment",
+    "user_input": ["i", "have", "loosemotion"],
+    "bot_response": "Drink plenty of fluids, consider oral rehydration solutions, and avoid spicy and fatty foods.",
+    "required_words": ["i", "have", "loosemotion"]
+  }
+]

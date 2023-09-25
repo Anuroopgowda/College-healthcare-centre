@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Calendar Interface with Cell Highlight</title>
+    <style>
+        /* Add CSS styles to customize the calendar appearance */
+        table {
+            border-collapse: collapse;
+            width: 300px;
+        }
+        th, td {
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.highlighted {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendar</h1>
+    <div>
+        <button id="prevMonth">Previous Month</button>
+        <span id="currentMonthYear">September 2023</span>
+        <button id="nextMonth">Next Month</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+        <tbody id="calendarBody">
+            <!-- Calendar cells will be generated here -->
+        </tbody>
+    </table>
+
+    <script>
+        const calendarBody = document.getElementById('calendarBody');
+        const currentMonthYear = document.getElementById('currentMonthYear');
+        const prevMonthButton = document.getElementById('prevMonth');
+        const nextMonthButton = document.getElementById('nextMonth');
+
+        let currentDate = new Date();
+        let currentYear = currentDate.getFullYear();
+        let currentMonth = currentDate.getMonth();
+
+        // Function to generate the calendar for a given month and year
+        function generateCalendar(year, month) {
+            const date = new Date(year, month, 1);
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const startingDay = date.getDay();
+
+            calendarBody.innerHTML = '';
+            currentMonthYear.textContent = new Intl.DateTimeFormat('en-US', {
+                year: 'numeric',
+                month: 'long',
+            }).format(date);
+
+            let day = 1;
+            for (let i = 0; i < 6; i++) {
+                const row = document.createElement('tr');
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < startingDay) {
+                        const cell = document.createElement('td');
+                        row.appendChild(cell);
+                    } else if (day <= daysInMonth) {
+                        const cell = document.createElement('td');
+                        cell.textContent = day;
+                        row.appendChild(cell);
+                        day++;
+
+                        // Add click event listener to mark the cell red permanently
+                        cell.addEventListener('click', function () {
+                            cell.classList.add('highlighted');
+                            cell.removeEventListener('click', handleClick);
+                        });
+
+                        // Define the click event handler separately
+                        function handleClick() {
+                            cell.classList.add('highlighted');
+                            cell.removeEventListener('click', handleClick);
+                        }
+                    }
+                }
+                calendarBody.appendChild(row);
+            }
+        }
+
+        // Initial call to generate the calendar for the current month and year
+        generateCalendar(currentYear, currentMonth);
+
+        // Event listener for previous month button
+        prevMonthButton.addEventListener('click', function () {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentYear, currentMonth);
+        });
+
+        // Event listener for next month button
+        nextMonthButton.addEventListener('click', function () {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentYear, currentMonth);
+        });
+    </script>
+</body>
+</html>

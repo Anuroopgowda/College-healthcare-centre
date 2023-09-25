@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doctor's Prescription</title>
+    <style>
+
+
+    @media print {
+        body {
+            font-size: 12pt; /* You can adjust the font size for printing */
+            line-height: 1.6;
+        }
+
+        .prescription {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .prescription h2 {
+            text-align: center;
+            font-size: 16pt; /* You can adjust the heading font size for printing */
+        }
+
+        .prescription p {
+            margin: 5px 0;
+            font-size: 12pt; /* You can adjust the paragraph font size for printing */
+        }
+
+        .prescription ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .prescription ul li:before {
+            content: "• ";
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+        }
+
+        .signature img {
+            width: 30px; /* Set the desired width for the signature image */
+            height: auto; /* The height will be adjusted proportionally */
+        }
+    }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .prescription {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .prescription h2 {
+            text-align: center;
+        }
+        .prescription p {
+            margin: 5px 0;
+        }
+        .prescription ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .prescription ul li:before {
+            content: "• ";
+        }
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+        }
+        .signature img {
+            width: 30px; /* Set the desired width */
+            height: auto; /* The height will be adjusted proportionally */
+        }
+    </style>
+</head>
+<body>
+    <div class="prescription">
+        <h2>Doctor's Prescription</h2>
+        <p><strong>Date:</strong> <span id="currentDate"></span></p>
+        <p><strong>Doctor's Name:</strong> Anuroop</p>
+        <p><strong>Doctor's License Number:</strong> 5652656</p>
+        <p><strong>Patient's Name:</strong> {{current_user.username}}</p>
+
+        <p><strong>Diagnosis:</strong> headache</p>
+        <p><strong>Medication:</strong> 1.dart
+        2.ibuprofen</p>
+        <p><strong>Advice:</strong> take plenty of rest to treat your headache</p>
+      <div class="signature">
+  <p>Doctor's Signature:</p>
+  <img src="static/sig.jpg" alt="Doctor's Signature">
+</div>
+    </div>
+<button onclick="printPrescription()">Print Prescription</button>
+    <script>
+        // Get the current date and format it as "YYYY-MM-DD"
+        const currentDate = new Date().toISOString().split('T')[0];
+        document.getElementById('currentDate').textContent = currentDate;
+
+
+    </script>
+</body>
+</html>
